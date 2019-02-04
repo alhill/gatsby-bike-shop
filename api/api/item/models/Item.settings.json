@@ -1,0 +1,51 @@
+{
+  "connection": "default",
+  "collectionName": "item",
+  "info": {
+    "name": "item",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "titulo": {
+      "default": "",
+      "type": "string"
+    },
+    "descripcion": {
+      "default": "",
+      "type": "text"
+    },
+    "imagenes": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "visible": {
+      "default": true,
+      "type": "boolean"
+    },
+    "disponible": {
+      "default": true,
+      "type": "boolean"
+    },
+    "precio": {
+      "default": "",
+      "type": "integer"
+    },
+    "kilometros": {
+      "default": "",
+      "type": "integer"
+    },
+    "year": {
+      "default": "",
+      "type": "integer"
+    },
+    "slug": {
+      "default": "",
+      "type": "string"
+    }
+  }
+}
