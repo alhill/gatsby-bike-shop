@@ -1,34 +1,53 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import { Accordion, AccordionPanel, Box, Text, Grommet, Menu } from 'grommet'
+import { Menu as IconMenu, Close } from 'grommet-icons'
 
+const theme = {
+  menu: {
+    icons: {
+      down: Close
+    }
+  }
+}
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
+  <Grommet theme={theme}>
+    <header
       style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
+        background: `rebeccapurple`,
+        marginBottom: `1.45rem`,
       }}
     >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          padding: "0.5em 2em"
+        }}
+      >
+        <h1 style={{ margin: 0 }}>
+          <Link
+            to="/"
+            style={{
+              color: `white`,
+              textDecoration: `none`,
+            }}
+          >
+            {siteTitle}
+          </Link>
+        </h1>
+        <Menu
+          icon={<IconMenu />}
+          dropAlign={{right: "right", top: "top"}}
+          items={[
+            { label: 'First Action', onClick: () => {} },
+            { label: 'Second Action', onClick: () => {} },
+          ]}
+        />
+      </div>
+    </header>
+  </Grommet>
 )
 
 Header.propTypes = {

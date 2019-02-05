@@ -12,10 +12,14 @@ const IndexPage = ({ data }) => (
           {data.allStrapiItem.edges.filter(document => document.node.disponible === true && document.node.visible === true ).map(document => (
             <div className="col-12 col-md-6" key={document.node.id}>
               <img style={{ width: "100%", height: 250, objectFit: "cover" }} alt="" src={ "http://localhost:1337" + ( document.node.imagenes[0] !== undefined ? document.node.imagenes[0].url : "/uploads/placeholder.png" )} />
-              <h2>
+              <h4>
                 <Link to={`/item/${document.node.slug}`} state={{ id: document.node.id }}>{document.node.titulo}</Link>
-              </h2>
-              <p>{document.node.descripcion}</p>
+              </h4>
+              <ul>
+                <li><h4>Año: { document.node.year }</h4></li>
+                <li><h5>Kms: { document.node.kilometros.toLocaleString() }</h5></li>
+                <li><h5>{ document.node.precio.toLocaleString() }€</h5></li>
+              </ul>
             </div>
           ))}
         </div>
@@ -26,10 +30,14 @@ const IndexPage = ({ data }) => (
           {data.allStrapiItem.edges.filter(document => ( document.node.disponible === false && document.node.visible === true )).map(document => (
             <div className="col-12 col-sm-6" key={document.node.id}>
               <img style={{ width: "100%", height: 250, objectFit: "cover" }} alt={"Tienda de motos - " + document.node.titulo} src={ "http://localhost:1337" + ( document.node.imagenes[0] !== undefined ? document.node.imagenes[0].url : "/uploads/placeholder.png" )} />
-              <h2>
+              <h4>
                 <Link to={`/item/${document.node.slug}`}>{document.node.titulo}</Link>
-              </h2>
-              <p>{document.node.descripcion}</p>
+              </h4>
+              <ul>
+                <li><h5>Año: { document.node.year }</h5></li>
+                <li><h5>Kms: { document.node.kilometros.toLocaleString() }</h5></li>
+                <li><h3>{ document.node.precio.toLocaleString() }€</h3></li>
+              </ul>
             </div>
           ))}
         </div>
